@@ -1,0 +1,22 @@
+{
+  "name": "better-sqlite3-lambda-layer",
+  "version": "1.0.0",
+  "description": "A Lambda Layer for better-sqlite3 (nodejs)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "./build.sh && sls deploy"
+  },
+  "keywords": [
+    "lambda",
+    "lambda-layers",
+    "layers",
+    "aws",
+    "better-sqlite3",
+    "sqlite"
+  ],
+  "author": "Sean Fisher",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^5.0.1"
+  }
+}
