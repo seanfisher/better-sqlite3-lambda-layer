@@ -36,6 +36,10 @@ To build and deploy in one step:
 
 It should spit out the name of the ARN that you can use in your other lambdas.
 
+If you want to use a lambda globally, you can run this command to grant access globally (replace $VERSION with the correct version):
+
+    aws lambda add-layer-version-permission --layer-name BetterSqlite3 --statement-id global-lambda-layer-access --version-number $VERSION --principal '*' --action lambda:GetLayerVersion
+
 ## Customization
 
 This repo should also work with other native modules - just build your application normally using `npm install`. You can even run your application locally; the build script takes your entire `node_modules` folder, installs the production dependencies built using a lambda environment, and packages it up into the layer.
