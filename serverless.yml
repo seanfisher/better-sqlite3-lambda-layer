@@ -16,6 +16,7 @@ package:
 functions:
   example:
     handler: example/handler.hello
+    description: An example of how to use the better-sqlite3 Lambda layer
     layers: 
       - {Ref: BetterSqlite3LambdaLayer}
     
