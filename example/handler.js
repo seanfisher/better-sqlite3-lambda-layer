@@ -1,10 +1,10 @@
-'use strict';
+const path = require('path');
 
 const options = {};
 
 // Since better-sqlite3 will be in /opt/...
 // use absolute path to database
-const dbName = __dirname + '/test.db';
+const dbName = path.join(__dirname, '/test.db');
 
 const db = require('better-sqlite3')(dbName, {options});
 
