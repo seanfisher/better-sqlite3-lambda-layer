@@ -8,7 +8,7 @@ It also serves as a template and example for using any native-compiled module wi
 
 When configuring your lambda, click on Layers and choose "Add a layer". Choose "Provide a layer version ARN" and use the following ARN (latest version - [see all versions](#version-arns)):
 
-    arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:4
+    arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:7
 
 Then, in your code, simply require and use better-sqlite3 as you normally would:
 
@@ -48,6 +48,7 @@ Since currently all the production `node_modules` are included in the layer, the
 
 ## Version ARNs
 
-| better-sqlite3 version | ARN |
-| --- | --- |
-| 5.0.1 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:4 |
+| node.js version | better-sqlite3 version | ARN |
+| --- | --- | --- |
+| 8.10 | 5.0.1 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:4 |
+| 12.x | 5.4.0 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:7 |
