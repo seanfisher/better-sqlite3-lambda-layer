@@ -4,7 +4,8 @@
   "description": "A Lambda Layer for better-sqlite3 (nodejs)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "./build.sh && sls deploy"
+    "deploy": "./build.sh && sls deploy",
+    "deploy-test-function": "serverless deploy function -f example"
   },
   "keywords": [
     "lambda",
@@ -17,6 +18,6 @@
   "author": "Sean Fisher",
   "license": "MIT",
   "dependencies": {
-    "better-sqlite3": "5.4.0"
+    "better-sqlite3": "6.0.1"
   }
 }
