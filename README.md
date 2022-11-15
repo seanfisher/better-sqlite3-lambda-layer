@@ -1,6 +1,7 @@
 # better-sqlite3 Lambda Layer
 
-A [layer for AWS Lambda](https://aws.amazon.com/about-aws/whats-new/2018/11/aws-lambda-now-supports-custom-runtimes-and-layers/) that allows you to use [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3) without having to compile any native modules. Just include this layer and then your code can access `better-sqlite3` normally when running in AWS Lambda.
+A [layer for AWS Lambda](https://aws.amazon.com/about-aws/whats-new/2018/11/aws-lambda-now-supports-custom-runtimes-and-layers/) 
+that allows you to use [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3) without having to compile any native modules. Just include this layer and then your code can access `better-sqlite3` normally when running in AWS Lambda.
 
 It also serves as a template and example for using any native-compiled module with a nodejs lambda.
 
@@ -24,15 +25,20 @@ Clone this repo:
 
 You can use the build script to build the layer directory:
 
-    ./build.sh
+    RUNTIME=nodejs12 ./build.sh
+    RUNTIME=nodejs14 ./build.sh
+    RUNTIME=nodejs16 ./build.sh
 
 Then use [serverless](https://serverless.com/framework/docs/providers/aws/guide/functions/#layers) to deploy the layer and example function to your own account:
 
-    sls deploy
+
+    RUNTIME=nodejs14 ./build.sh sls deploy
 
 To build and deploy in one step:
 
-    npm run deploy
+    npm run deploy12
+    npm run deploy14
+    npm run deploy16
 
 It should spit out the name of the ARN that you can use in your other lambdas.
 
@@ -48,7 +54,10 @@ Since currently all the production `node_modules` are included in the layer, the
 
 ## Version ARNs
 
-| node.js version | better-sqlite3 version | ARN |
-| --- | --- | --- |
-| 12.x | 5.4.0 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:8 |
-| 12.x | 6.0.1 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:9 |
+| node.js version | better-sqlite3 version | ARN                                                                    |
+|-----------------| --- |------------------------------------------------------------------------|
+| 12.x            | 5.4.0 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:8            |
+| 12.x            | 6.0.1 | arn:aws:lambda:us-east-1:284387765956:layer:BetterSqlite3:9            |
+| 12.x            | 6.0.1 | arn:aws:lambda:us-east-1:833069544670:layer:better-sqlite3-nodejs12:1  |
+| 14.x            | 6.0.1 | arn:aws:lambda:us-east-1:833069544670:layer:better-sqlite3-nodejs14:1  |
+| 16.x            | 7.6.2 | arn:aws:lambda:us-east-1:833069544670:layer:better-sqlite3-nodejs16:1  |

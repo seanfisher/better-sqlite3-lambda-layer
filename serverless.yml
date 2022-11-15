@@ -3,7 +3,7 @@ frameworkVersion: "3"
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: ${env:RUNTIME}.x
   memorySize: 128
   logRetentionInDays: 14
 
@@ -24,11 +24,12 @@ functions:
 
 layers:
   BetterSqlite3:
+    name: better-sqlite3-${env:RUNTIME}
     path: layer
     retain: true
-    description: A Layer to provide fast SQLite support in node.js Lambda functions using better-sqlite3
+    description: A Layer to provide fast SQLite support in node.js Lambda functions using better-sqlite3 {self.provider.runtime}
     compatibleRuntimes:
-      - nodejs14.x
+      - ${env:RUNTIME}.x
     allowedAccounts:
       - '*'
     

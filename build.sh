@@ -6,11 +6,11 @@ set -e
 rm -rf layer && mkdir -p layer/nodejs/node_modules
 
 # Copies package.json to build directory
-rm -rf build && mkdir build && cp package.json build && cp package-lock.json build
+rm -rf build && mkdir build && cp package.json build
 
 # Rebuilds native node modules using lambda environment
 cd build
-docker run --rm -v "$PWD":/var/task amazon/aws-sam-cli-build-image-nodejs14.x npm install --only=prod
+docker run --rm -v "$PWD":/var/task public.ecr.aws/sam/build-${RUNTIME}.x npm install --only=prod
 cd ..
 
 # Copies build into layer staging directory
