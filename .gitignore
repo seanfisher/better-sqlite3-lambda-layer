@@ -2,3 +2,4 @@
 layer/
 node_modules/
 build/
+.idea
